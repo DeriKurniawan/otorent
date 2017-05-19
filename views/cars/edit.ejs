@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>cars-edit</title>
+  </head>
+  <body>
+    <h3>Edit Cars</h3>
+    <br>
+    <form class="" action="/cars/update/<%= cars.id %>" method="post">
+      <label for="">
+        name:
+        <input type="text" name="name" value="<%= cars.name %>">
+      </label>
+      <br>
+      <label for="">
+        manufacture:
+        <input type="text" name="manufacture" value="<%= cars.manufacture %>">
+      </label>
+      <br>
+      <label for="">
+        color:
+        <input type="text" name="color" value="<%= cars.color %>">
+      </label>
+      <br>
+      <label for="">
+        status:
+        <select class="" name="status">
+          <option value="true">Not Available</option>
+          <option value="false">Available</option>
+        </select>
+      </label>
+      <br>
+      <label for="">
+        description:
+        <textarea name="description" rows="8" cols="80" value="<%= cars.description %>"></textarea>
+      </label>
+      <br>
+      <label for="">
+        image:
+        <img src="<%= cars.image %>" alt="">
+      </label>
+      <br>
+      <label for="">
+        car category:
+        <select class="" name="category_id">
+          <% categories.forEach((cat)=>{ %>
+            <% if(!cat.Category == null){ %>
+              <% if(cat.id == cars.category_id){ %>
+                <option value="<%= cat.id %>" selected="selected"><%= cat.category %></option>
+              <% } else { %>
+                <option value="<%= cat.id %>"><%= cat.category %></option>
+              <% } %>
+            <% } else { %>
+              <option value="<%= cat.id %>"><%= cat.category %></option>
+            <% } %>
+          <% }) %>
+        </select>
+      </label>
+      <br>
+      <button type="submit" name="button">Submit</button>
+    </form>
+  </body>
+</html>

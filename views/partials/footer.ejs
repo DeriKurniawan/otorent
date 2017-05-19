@@ -1,8 +1,11 @@
+    </div>
+  </div>
+</div>
 <footer class="page-footer teal">
   <div class="container">
     <div class="row">
       <div class="col l12 s12">
-        <h5 class="white-text">E OTORENT COMPANY</h5>
+        <h5 class="white-text">AUTHOSCAR COMPANY</h5>
         <p class="grey-text text-lighten-4">Kami adalah sebuah perusahaan penyewa mobil yang berada di Jakarta. Kami beriorientasi pada jasa penyewaan mobil dan keragaman mobil. Telp : (021)89096788 email : deri@gmail.com
           Sudah 5 tahun Perusahaan kami menemani anda dalam perjalanan berharga anda. Kami akan selalu menerima kritik dan saran untuk membangun kami menjadi lebih baik. Untuk itu Anda dapat langsung menemui kami di Pantai Indah
           Kapuk, Cengkareng, Jakarta Barat 133346.
@@ -20,10 +23,24 @@
 </footer>
 
 
-<!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="js/materialize.js"></script>
-<script src="js/init.js"></script>
+<!-- Compiled and minified JavaScript -->
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.js"></script>
+<script type="text/javascript">
+(function($){
+  $(function(){
 
+    $('.button-collapse').sideNav();
+    $('.parallax').parallax();
+
+  }); // end of document ready
+})(jQuery); // end of jQuery name space
+
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+</script>
 </body>
 </html>

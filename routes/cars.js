@@ -10,7 +10,7 @@ router.get('/', (req, res, next)=> {
   })
   .then((cars)=> {
     console.log(JSON.stringify(cars));
-    res.render('cars/index', {
+    res.render('./cars/index', {
       result: cars
     })
   })
@@ -33,6 +33,7 @@ router.post('/create', (req, res, next)=> {
     manufacture: body.manufacture,
     color: body.color,
     status: body.status,
+    price: body.price,
     description: body.description,
     image: body.image,
     category_id: body.category_id
@@ -51,10 +52,10 @@ router.get('/edit/:id', (req, res, next)=>{
   })
   .then((cars)=>{
     models.Category.findAll()
-    .then((category)=>{
+    .then((categories)=>{
       res.render('cars/edit', {
         cars: cars,
-        categories: catogery
+        categories: categories
       })
     })
   })

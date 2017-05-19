@@ -7,7 +7,7 @@ const models = require('../models');
 router.get('/', (req, res, next)=>{
   models.Category.findAll()
   .then((cats)=>{
-    res.render('/categories/index', {
+    res.render('./categories/index', {
       result: cats
     })
   })
@@ -44,7 +44,7 @@ router.get('/edit/:id', (req,res,next)=>{
   })
 })
 
-router.post('/update/:id', {
+router.post('/update/:id', (req,res,next)=>{
   models.Category.find({
     where: {
       id: req.params.id

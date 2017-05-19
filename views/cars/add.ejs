@@ -1,0 +1,60 @@
+<% include ../partials/header %>
+<% include navbar %>
+    <h3>Add Cars</h3>
+    <br>
+    <form class="" action="/cars/create" method="post">
+      <label for="">
+        name:
+        <input type="text" name="name" value="">
+      </label>
+      <br>
+      <label for="">
+        manufacture:
+        <input type="text" name="manufacture" value="">
+      </label>
+      <br>
+      <label for="">
+        color:
+        <input type="text" name="color" value="">
+      </label>
+      <br>
+      <div class="input-field col s12">
+        <label for="">
+          status:
+          <select class="" name="status">
+            <option value="true">Not Available</option>
+            <option value="false">Available</option>
+          </select>
+        </label>
+      </div>
+      <br>
+      <br>
+      <label for="">
+        Price:
+        <input type="text" name="price" value="">
+      </label>
+      <label for="">
+        description:
+        <textarea name="description" rows="8" cols="80"></textarea>
+      </label>
+      <br>
+      <label for="">
+        image:
+        <input type="text" name="image" value="" placeholder="input path link">
+      </label>
+      <br>
+          <label for="">
+            car category:
+            <select class="" name="category_id">
+              <option disabled selected>Choose your option</option>
+              <% if(categories.length == null || categories.length == 0){ %>
+                <option value="0"><%= `category is empty` %></option>
+                <% } else { categories.forEach((category)=>{ %>
+                  <option value="<%= category.id %>"><%= category.category %></option>
+                  <% }) } %>
+            </select>
+          </label>
+      <br>
+      <button type="submit" name="button">Submit</button>
+    </form>
+  <% include ../partials/footer %>

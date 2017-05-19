@@ -4,7 +4,10 @@ module.exports = function(sequelize, DataTypes) {
     start_date: DataTypes.DATE,
     finish_date: DataTypes.DATE,
     driver: DataTypes.BOOLEAN,
-    car_id: DataTypes.INTEGER
+    car_id: DataTypes.INTEGER,
+    user_name: DataTypes.STRING,
+    long_rent: DataTypes.INTEGER,
+    total_price: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {

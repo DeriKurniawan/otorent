@@ -28,7 +28,7 @@
                         <div class="card-image">
                           <img src="<%= car.image %>">
                           <span class="card-title"><%= car.name %></span>
-                          <a class=" btn tooltipped btn-floating halfway-fab waves-effect waves-light red" data-position="left" data-delay="50" data-tooltip="Add Here!"><i class="material-icons">add</i></a>
+                          <a href="/transactions/add/<%= car.id %>" class=" btn tooltipped btn-floating halfway-fab waves-effect waves-light red" data-position="left" data-delay="50" data-tooltip="Add Here!"><i class="material-icons">add</i></a>
                         </div>
                         <div class="card-content">
                           <p><%= car.description %></p>

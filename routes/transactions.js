@@ -4,15 +4,29 @@ var db = require('../models')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  db.Transaction.findAll({include:{model: db.Car}, order: 'id DESC'})
-  .then ((_transactions)=>{
-    res.render('./transactions/index', {transactions: _transactions})
+  db.Transaction.findAll({
+    include:[ db.Car ],
+    order: `"id" DESC`
+  })
+  .then ((transactions)=>{
+    res.render('./transactions/index', {
+      transactions: transactions
+    })
   })
 });
 
 
-router.get('/add', (req, res, next)=>{
-  res.render('./transactions/add')
+router.get('/add/:id', (req, res, next)=>{
+  db.Car.findOne({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then((car)=>{
+    res.render('./transactions/add', {
+      car: car
+    })
+  })
 })
 
 router.post('/add', (req, res, next)=>{
@@ -45,7 +59,14 @@ router.post('/update/:id', (req, res, next)=>{
 })
 
 router.get('/edit/:id', (req, res, next)=>{
-  res.render('./transactions/edit')
+  let param = req.params.id
+  db.Transaction.findById(param, {include:{model:db.Car}, order: `"id" DESC`})
+  .then((transactions)=>{
+    db.Car.findAll()
+    .then((car)=>{
+    res.render('./transactions/edit', {trans: transactions, car: car})
+  })
+  })
 })
 
 router.post('/delete/:id', (req, res, next)=>{
